@@ -98,6 +98,6 @@
 
 {%macro app_screenshot(url,span=6)%}
     <li class="span{{span}}">
-        <a href="#" class="thumbnail"><img src="{{STATIC_URL}}{{url}}" alt=""></a>
+        <a href="{{STATIC_URL}}{{url}}" class="thumbnail"><img src="{{STATIC_URL}}{{url}}" alt=""></a>
     </li>
 {%endmacro%}
