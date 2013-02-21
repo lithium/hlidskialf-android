@@ -12,7 +12,11 @@
     </ul>
     #}
 
-    <h1>{%block blog_title%} {%endblock%}</h1>
+    <div class="page-header">
+        {%block page_header%}
+        <h1>{%block blog_title%} {%endblock%}<small>Hlidskialf Codes</small> </h1>
+        {%endblock%}
+    </div>
 
     <div class="metadata">
         {%block blog_metadata%}

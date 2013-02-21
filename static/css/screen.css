@@ -4,6 +4,22 @@ body
 }
 
 
-#apps .downloads .thumbnail {
+#home .hero-unit {
+    background-image: url(/static/images/sleipnir-left.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    padding-top: 112px;
+}
+
+#home .hero-unit h3 {
+    text-align: center;
+}
+
+#home .featured .thumbnail img {
+    width: 48px;
+    height: 48px;
+}
+
+.thumbnails .thumbnail {
     text-align: center;
 }
