@@ -1,0 +1,22 @@
+{%extends "apps/base.html"%}
+
+{%block app_title%}
+Hlidskialf Android Apps 
+{%endblock%}
+
+
+{%macro app_entry(title, slug, prefix='/apps/')%}
+<div class="app-entry">
+    <div class="row">
+        <div class="span12">
+            <a href="{{prefix}}{{slug}}">{{title}}</a> 
+        </div>
+    </div>
+</div>
+{%endmacro%}
+
+
+{%block app_content%}
+
+
+{%endblock%}

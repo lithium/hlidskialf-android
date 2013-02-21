@@ -1,0 +1,65 @@
+{%extends "apps/detail.html"%}
+
+
+{%block app_title%}
+Pomodoro <small>Productivity Timer</small>
+{%endblock%}
+
+{%block app_icon%}
+{{STATIC_URL}}apps/pomodoro/pomodoro.png
+{%endblock%}
+
+{%block market_url%}
+http://market.android.com/details?id=com.hlidskialf.android.pomodoro
+{%endblock%}
+
+{%block app_summary%}
+<p>A tomato timer for using the Pomodoro technique.</p>
+{%endblock%}
+
+{%block app_version%}
+1.2
+{%endblock%}
+
+{%block app_price%}
+$0.99
+{%endblock%}
+
+{%block app_description%}
+    <p>
+    The pomodoro technique is a personal time management method: 
+    <ol>
+    <li>Choose a task. </li>
+    <li>Work uninterrupted for 25 minutes. </li>
+    <li>Walk away and break for 5 minutes. </li>
+    <li>After 4 tomatos, take a longer break. </li>
+    </ol>
+    </p>
+
+    <p>
+    Source code: <a href="https://github.com/lithium/pomodoro">https://github.com/lithium/pomodoro</a>
+    </p>
+{%endblock%}
+
+
+{%block app_features%}
+    <dt>Customize Ringtones</dt>
+    <dd>Set ringtone, volume, vibrate, and delay between ringtones.</dd>
+
+    <dt>Customize Duration</dt>
+    <dd>Set the tomato and rest periods from their defaults (25min and 5min).</dd>
+
+    <dt>Notification Timer</dt>
+    <dd>Get a running timer in the notification bar indiciating your tomato status.</dd>
+{%endblock%}
+
+
+{%block app_screenshots%}
+    {{app_screenshot("apps/pomodoro/ss_pomodoro.png", span=6)}}
+    {{app_screenshot("apps/pomodoro/ss_pomodoro_notify.png", span=6)}}
+{%endblock%}
+
+
+{%block app_downloads%}
+    {{app_download("apps/pomodoro/Pomodoro-1.2.apk","Pomodoro-1.2.apk")}}
+{%endblock%}

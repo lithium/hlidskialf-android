@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+
+
+{%block content%}
+
+<div class="container-fluid" id="apps">
+
+    {#
+    <ul class="breadcrumb">
+        <li><a href="/apps">Apps</a><span class="divider">/</span></li>
+        <li class="active">{{self.app_title()}}</li>
+    </ul>
+    #}
+
+    <div class="page-header">
+        <h1>{%block app_title%} {%endblock%}</h1>
+    </div>
+
+    {%block app_content%}
+    
+    {%endblock%}
+
+
+
+
+</div>
+{%endblock%}

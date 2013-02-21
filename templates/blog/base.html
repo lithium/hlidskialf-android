@@ -5,10 +5,12 @@
 
 <div class="container-fluid">
 
+    {#
     <ul class="breadcrumb">
         <li><a href="/blog">Code Blog</a><span class="divider">/</span></li>
         <li class="active">{{self.blog_title()}}</li>
     </ul>
+    #}
 
     <h1>{%block blog_title%} {%endblock%}</h1>
 

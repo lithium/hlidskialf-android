@@ -1,0 +1,100 @@
+{%extends "apps/base.html"%}
+
+
+
+{%block app_metadata%}
+<div class="icon">
+    <a href="http://market.android.com/details?id=com.hlidskialf.android.pomodoro"><img src="{{STATIC_URL}}apps/pomodoro/pomodoro.png"></a>
+</div>
+<div class="title">Pomodoro - Productivity Timer</div>
+<div class="description">A tomato timer for using the Pomodoro technique.</div>
+<div class="version">1.2</div>
+<div class="price">$0.99</div>
+{%endblock%}
+
+
+{%block app_content%}
+
+
+<div class="hero-unit">
+    <div class="media">
+        <a class="pull-left" href="{%block market_url%}{%endblock%}">
+            <img class="media-object" src="{%block app_icon%}{%endblock%}">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">{{ self.app_title() }}</h4>
+            {%block app_summary%}
+                <p></p>
+            {%endblock%}
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4"><strong>Price:</strong> {%block app_price%}$0.99{%endblock%} <a href="{{self.market_url()}}"><i class="icon-download-alt"></i>Download</a></div>
+    </div>
+</div>
+
+
+
+<div class="row-fluid">
+
+    <div class="span7 description">
+        <h3>Description</h3>
+        {%block app_description%}
+        <p>
+        </p>
+        {%endblock%}
+    </div>
+
+
+    <div class="span5 screenshots">
+        <h3>Screenshots</h3>
+        <ul class="thumbnails">
+        {%block app_screenshots%}
+        {%endblock%}
+        </ul>
+    </div>
+</row>
+
+<div class="row-fluid">
+    <div class="span12 features">
+        <h3>Features</h3>
+        <dl class="dl-horizontal">
+        {%block app_features%}
+            <dt>Feature</dt>
+            <dd>feature description.</dd>
+        {%endblock%}
+        </dl>
+    </div>
+</row>
+
+<div class="row-fluid">
+    <div class="span12 downloads">
+        <h3>Downloads</h3>
+        <ul class="thumbnails">
+        {%block app_downloads%}
+            {{app_download("apps/appname/app.apk","App-1.2.apk")}}
+        {%endblock%}
+        </ul>
+    </div>
+</row>
+
+{%endblock%}
+
+
+{%macro app_download(url, title, caption=None, span=2)%}
+<li class="span{{span}}">
+    <div class="thumbnail">
+      <a href="{{STATIC_URL}}{{url}}">
+        <img src="{{self.app_icon()}}" alt="">
+        <h6>{{title}}</h6>
+      </a>
+      {%if caption%}<p>{{caption}}</p>{%endif%}
+    </div>
+</li>
+{%endmacro%}
+
+{%macro app_screenshot(url,span=6)%}
+    <li class="span{{span}}">
+        <a href="#" class="thumbnail"><img src="{{STATIC_URL}}{{url}}" alt=""></a>
+    </li>
+{%endmacro%}
