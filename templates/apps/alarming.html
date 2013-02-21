@@ -1,0 +1,55 @@
+{%extends "apps/detail.html"%}
+
+
+{%block app_title%}
+Alarming <small>Alarm Clock</small>
+{%endblock%}
+
+{%block app_icon%}
+{{STATIC_URL}}apps/alarming/alarming.png
+{%endblock%}
+
+{%block market_url%}
+http://market.android.com/details?id=com.hlidskialf.android.alarming
+{%endblock%}
+
+{%block app_summary%}
+<p>An enhancement of the standard android AlarmClock application.</p>
+{%endblock%}
+
+{%block app_price%}
+$0.99
+{%endblock%}
+
+{%block app_description%}
+<p>An enhancement of the standard Android AlarmClock application. All the great features of the standard alarm clock, plus extra customization for how alarms behave.
+</p>
+
+<p>Source code: <a href="http://github.com/hlidskialf/alarming">http://github.com/hlidskialf/alarming</a></p>
+{%endblock%}
+
+
+{%block app_features%}
+    <dt>Math Captcha</dt>
+    <dd>Always sleeping through snooze? Use the math captcha feature to make sure you are awake
+</dd>
+    <dt>Shake to snooze</dt>
+    <dd>Tired of fumbling sleepily for the snooze button? Just shake your phone and sleep on</dd>
+    <dt>Clock Widget</dt>
+    <dd>Bored of the one analog clock widget from the default alarmclock? Choose one of 11 new clock designs for your home screen.</dd>
+
+    <dt>Captcha on Dismiss</dt>
+    <dd>If Captcha on Dismiss is set, you must complete a little activity before alarms can be dismissed. (menu button will let you give up). The captcha is a quick little game where you are presented 9 dots, some randomly yellow. If you press a yellow dot it becomes green, if you press a gray dot it becomes red. Once all dots are green or gray, you can proceed.
+</dd>
+{%endblock%}
+
+{%block app_screenshots%}
+    {{app_screenshot("apps/alarming/ss_captcha.png", span=4)}}
+    {{app_screenshot("apps/alarming/ss_slider_pref.png", span=4)}}
+    {{app_screenshot("apps/alarming/ss_preferences.png", span=4)}}
+{%endblock%}
+
+
+{%block app_downloads%}
+    {{app_download("apps/alarming/Alarming-2.0.4.apk","Alarming 2.0.4", caption="old free version")}}
+{%endblock%}

@@ -1,0 +1,42 @@
+{%extends "apps/detail.html"%}
+
+
+{%block app_title%}
+Tone Picker <small>MP3 Ringtones</small>
+{%endblock%}
+
+{%block app_icon%}
+{{STATIC_URL}}apps/tonepicker/tonepicker.png
+{%endblock%}
+
+{%block market_url%}
+http://market.android.com/details?id=com.hlidskialf.android.tonepicker
+{%endblock%}
+
+{%block app_summary%}
+<p>A ringtone picker replacement, based heavily on Rings Extended.</p>
+{%endblock%}
+
+{%block app_price%}
+Free
+{%endblock%}
+
+{%block app_description%}
+<p>Tonepicker does only two things: One. provides a ringtone selection dialog when OTHER APPS are choosing ringtones Two. provides quick sliders for phone volumes. That is all.
+</p>
+{%endblock%}
+
+
+{%set hide_features=True %}
+
+
+{%block app_screenshots%}
+    {{app_screenshot("apps/tonepicker/ss_complete_using.png", span=4)}}
+    {{app_screenshot("apps/tonepicker/ss_splash.png", span=4)}}
+    {{app_screenshot("apps/tonepicker/ss_tonepicker.png", span=4)}}
+{%endblock%}
+
+
+{%block app_downloads%}
+    {{app_download("apps/tonepicker/TonePicker-0.9.2.1.apk","Tonepicker 0.9.2.1")}}
+{%endblock%}

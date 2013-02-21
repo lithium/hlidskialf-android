@@ -53,8 +53,10 @@
         {%endblock%}
         </ul>
     </div>
-</row>
+</div>
 
+
+{%if not hide_features%}
 <div class="row-fluid">
     <div class="span12 features">
         <h3>Features</h3>
@@ -65,7 +67,8 @@
         {%endblock%}
         </dl>
     </div>
-</row>
+</div>
+{%endif%}
 
 <div class="row-fluid">
     <div class="span12 downloads">
@@ -76,7 +79,7 @@
         {%endblock%}
         </ul>
     </div>
-</row>
+</div>
 
 {%endblock%}
 

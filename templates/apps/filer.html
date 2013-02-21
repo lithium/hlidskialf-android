@@ -1,0 +1,43 @@
+{%extends "apps/detail.html"%}
+
+
+{%block app_title%}
+Filer <small>File Manager</small>
+{%endblock%}
+
+{%block app_icon%}
+{{STATIC_URL}}apps/filer/filer.png
+{%endblock%}
+
+{%block market_url%}
+http://market.android.com/details?id=com.hlidskialf.android.filer
+{%endblock%}
+
+{%block app_summary%}
+<p>Browse and manage files on SD-Card</p>
+{%endblock%}
+
+{%block app_price%}
+$0.99
+{%endblock%}
+
+{%block app_description%}
+<p>Browse files on the sdcard, make shortcuts to files or directores, with a clean, easy to use interface.
+</p>
+
+<p>Source code: <a href="http://github.com/hlidskialf/filer">http://github.com/hlidskialf/filer</a>
+</p>
+{%endblock%}
+
+
+{%block app_features%}
+    <dt>Recursive copy/move/delete</dt>
+    <dd>Copy, Move, or Delete entire directories including sub-directories.</dd>
+{%endblock%}
+
+{%set hide_screenshots=True%}
+
+
+{%block app_downloads%}
+    {{app_download("apps/filer/Filer-Beta-1.0.3.apk","Filer Beta 1.0.3", caption="free beta")}}
+{%endblock%}
