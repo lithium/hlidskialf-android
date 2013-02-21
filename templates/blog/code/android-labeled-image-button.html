@@ -1,0 +1,74 @@
+{%extends "blog/base.html"%}
+
+
+{%block blog_title%}
+LabelImageButton
+{%endblock%}
+
+
+{%block blog_metadata%}
+<div class="byline">Wiggins</div>
+<div class="date">May 28, 2009</div>
+{%endblock%}
+
+
+
+{%block blog_content%}
+
+<p>
+I wanted an ImageButton that also had a label on it so I made this LabelImageButton widget.
+</p>
+
+
+<pre class="pre-scrollable prettyprint">{%raw%}
+/* The following code was written by Matthew Wiggins
+ * and is released under the APACHE 2.0 license
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+package com.hlidskialf.android.widget;
+ 
+import android.widget.LinearLayout;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.ImageView;
+import android.widget.TextView;
+ 
+public class LabelImageButton extends LinearLayout
+{
+  private ImageView mImage;
+  private TextView mText;
+ 
+  public LabelImageButton(Context context, AttributeSet attrs)
+  {
+    super(context,attrs);
+ 
+    mImage = new ImageView(context,attrs);
+    mImage.setPadding(0,0,0,0);
+    mText = new TextView(context,attrs);
+    mText.setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+    mText.setPadding(0,0,0,0);
+ 
+    setClickable(true);
+    setFocusable(true);
+    setBackgroundResource(android.R.drawable.btn_default);
+    setOrientation(LinearLayout.VERTICAL);
+    addView(mImage);
+    addView(mText);
+  }
+}
+{%endraw%}</pre>
+
+<p>Here is an example XML layout</p>
+<pre class="prettyprint">{%raw%}
+&lt;com.hlidskialf.android.widget.LabelImageButton  
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:src="@android:drawable/ic_menu_more"
+    android:text="MOAR"
+    android:textColor="#ff000000"
+    />
+{%endraw%}
+</pre>
+
+{%endblock%}

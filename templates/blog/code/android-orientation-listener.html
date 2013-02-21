@@ -1,0 +1,121 @@
+{%extends "blog/base.html"%}
+
+
+{%block blog_title%}
+Orientation Listener
+{%endblock%}
+
+
+{%block blog_metadata%}
+<div class="byline">Wiggins</div>
+<div class="date">June 11, 2009</div>
+{%endblock%}
+
+
+
+{%block blog_content%}
+
+<p>A listener class for detecting orientation changes.</p>
+
+
+<pre class="pre-scrollable prettyprint">{%raw%}
+/* The following code was written by 
+ * 
+ *   Matthew Wiggins (Jun 2009)
+ *
+ * and is released under the APACHE 2.0 license
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+package com.hlidskialf.android.hardware;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import java.lang.UnsupportedOperationException;
+import java.util.List;
+
+public class OrientationListener implements SensorEventListener 
+{
+  public static final int ORIENTATION_UNDETERMINED=-1;
+  public static final int ORIENTATION_NORTH=0;
+  public static final int ORIENTATION_EAST=1;
+  public static final int ORIENTATION_SOUTH=2;
+  public static final int ORIENTATION_WEST=3;
+
+  private SensorManager mSensorMgr;
+  private Sensor mSensor;
+  private Context mContext;
+  private int mCurOrientation = ORIENTATION_UNDETERMINED;
+  private OnRotateListener mRotateListener;
+
+  public interface OnRotateListener
+  {
+    public void onRotate(int orientation);
+  }
+
+
+  public OrientationListener(Context context)
+  {
+    mContext = context;
+  }
+
+  public void resume() {
+    mSensorMgr = (SensorManager)mContext.getSystemService(Context.SENSOR_SERVICE);
+    if (mSensorMgr == null) {
+      throw new UnsupportedOperationException("Sensors not supported");
+    }
+
+    List<Sensor> sensors = mSensorMgr.getSensorList(Sensor.TYPE_ORIENTATION);
+    if (sensors.size() < 1) 
+      throw new UnsupportedOperationException("Orientation not supported");
+    mSensor = sensors.get(0);
+    if (!mSensorMgr.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_UI)) 
+      throw new UnsupportedOperationException("Orientation not supported");
+  }
+  public void pause() {
+    if (mSensorMgr != null) {
+      mSensorMgr.unregisterListener(this, mSensor);
+      mSensorMgr = null;
+    }
+  }
+  public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+  public void onSensorChanged(SensorEvent event)
+  {
+    int new_orient = which_orientation(event.values[0]);
+    if (new_orient == ORIENTATION_UNDETERMINED) 
+      return;
+
+    if (new_orient != mCurOrientation) {
+      mCurOrientation = new_orient;
+      if (mRotateListener != null) {
+        mRotateListener.onRotate(new_orient);
+      }
+    }
+  }
+
+  private int which_orientation(float angle)
+  {
+    if ((angle < 90) && (angle > 0))
+      return ORIENTATION_NORTH;
+    if ((angle < 180) && (angle > 90))
+      return ORIENTATION_EAST;
+    if ((angle < 270) && (angle > 180))
+      return ORIENTATION_SOUTH;
+    if ((angle < 360) && (angle > 270))
+      return ORIENTATION_WEST;
+    return ORIENTATION_UNDETERMINED;
+  }
+
+  public void setOnRotateListener(OnRotateListener lstnr)
+  {
+    mRotateListener = lstnr;
+  }
+}
+
+{%endraw%}
+</pre>
+
+{%endblock%}

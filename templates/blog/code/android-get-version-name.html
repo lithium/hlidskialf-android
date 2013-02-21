@@ -1,0 +1,35 @@
+{%extends "blog/base.html"%}
+
+
+{%block blog_title%}
+Get Version Name
+{%endblock%}
+
+
+{%block blog_metadata%}
+<div class="byline">Wiggins</div>
+<div class="date">June 11, 2009</div>
+{%endblock%}
+
+
+
+{%block blog_content%}
+
+<p>
+This is a little snippet to fetch the versionName from the AndroidManifest.xml
+</p>
+
+
+<pre class="prettyprint">{%raw%}
+public static function String getVersionName(Context context, Class cls) 
+{
+  try {
+    ComponentName comp = new ComponentName(context, cls);
+    PackageInfo pinfo = context.getPackageManager().getPackageInfo(comp.getPackageName(), 0);
+    return pinfo.versionName;
+  } catch (android.content.pm.PackageManager.NameNotFoundException e) {
+    return null;
+  }
+}
+{%endraw%}</pre>
+{%endblock%}
