@@ -1,0 +1,30 @@
+{%extends "blog/base.html"%}
+
+{%block blog_title%}
+Hlidskialf Android Codes
+{%endblock%}
+
+
+{%macro blog_entry(title, slug, date=None, prefix='/blog/code/')%}
+<div class="blog-entry">
+    <div class="row">
+        <div class="span12">
+            <a href="{{prefix}}{{slug}}">{{title}}</a> 
+            {%if date%}
+            &ndash; <span class="date">{{date}}</span>
+            {%endif%}
+        </div>
+    </div>
+</div>
+{%endmacro%}
+
+
+{%block blog_content%}
+
+    {{blog_entry("OrientationListener", "android-orientation-listener", date="June 11, 2009")}}
+    {{blog_entry("Android Version Name", "android-get-version-name", date="June 11, 2009")}}
+    {{blog_entry("Android Shake Detection Listener", "android-shake-detection-listener", date="June 03, 2009")}}
+    {{blog_entry("LabelImageButton", "android-labeled-image-button", date="May 28, 2009")}}
+    {{blog_entry("SeekBarPreference", "android-seekbar-preference", date="May 28, 2009")}}
+
+{%endblock%}
