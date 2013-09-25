@@ -21,10 +21,10 @@ This is a little snippet to fetch the versionName from the AndroidManifest.xml
 
 
 <pre class="prettyprint">{%raw%}
-public static function String getVersionName(Context context, Class cls) 
+public static String getVersionName(Context context) 
 {
   try {
-    ComponentName comp = new ComponentName(context, cls);
+    ComponentName comp = new ComponentName(context, context.getClass());
     PackageInfo pinfo = context.getPackageManager().getPackageInfo(comp.getPackageName(), 0);
     return pinfo.versionName;
   } catch (android.content.pm.PackageManager.NameNotFoundException e) {
