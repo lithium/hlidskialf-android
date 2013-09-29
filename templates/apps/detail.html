@@ -84,11 +84,11 @@
 {%endblock%}
 
 
-{%macro app_download(url, title, caption=None, span=2)%}
+{%macro app_download(url, title, caption=None, span=2, icon=None)%}
 <li class="span{{span}}">
     <div class="thumbnail">
       <a href="{{STATIC_URL}}{{url}}">
-        <img src="{{self.app_icon()}}" alt="">
+        <img src="{{icon or self.app_icon()}}" alt="">
         <h6>{{title}}</h6>
       </a>
       {%if caption%}<p>{{caption}}</p>{%endif%}
