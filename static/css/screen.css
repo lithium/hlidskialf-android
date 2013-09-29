@@ -23,3 +23,9 @@ body
 .thumbnails .thumbnail {
     text-align: center;
 }
+
+
+img.app-icon {
+  width: 128px;
+  height: auto;
+}
